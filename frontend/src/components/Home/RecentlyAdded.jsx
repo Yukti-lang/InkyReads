@@ -11,7 +11,7 @@ const RecentlyAdded = () => {
         )
         setData(response.data.data)
         }
-        fetch()
+        fetch();
     }, []);
 
   return (
@@ -19,16 +19,17 @@ const RecentlyAdded = () => {
         <h4 className="text-3xl text-sky-500">Recently added books</h4>
         {!Data && (
         <div className="flex items-center justify-center my-8">
-            <Loader />
+            <Loader />{" "}
             </div>
         )}
-        <div className="my-8 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4">
-        {Data && Data.map((items, i)=><div key={i}>
+        <div className="my-8 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-8">
+        {Data && Data.map((items, i)=>
+        (<div key={i}>
             <BookCard data={items} />{" "}
-            </div>)}
+            </div>))}
         </div>
     </div>
   )
 }
 
-export default RecentlyAdded
+export default RecentlyAdded
